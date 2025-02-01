@@ -22,7 +22,6 @@ class _MyHomePageState extends State<HomePage> {
     String hobby = _hobbyController.text;
 
     if (name.isEmpty || age.isEmpty || hobby.isEmpty) {
-      // Show an alert if any field is empty
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Please fill in all fields!')),
       );
@@ -30,24 +29,25 @@ class _MyHomePageState extends State<HomePage> {
     }
 
     try {
-      // Save data to Firestore
-      await _firestore.collection('users').add({
-        'name': name,
-        'age': age,
-        'hobby': hobby,
+      Map<String, dynamic> data = {
+        "name": name,
+        "age": int.parse(age), // Convert age to integer
+        "hobby": hobby,
+      };
+
+      await _firestore
+          .collection("users")
+          .add(data)
+          .then((DocumentReference docRef) {
+        _nameController.clear();
+        _ageController.clear();
+        _hobbyController.clear();
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Data saved successfully!')),
+        );
       });
-
-      // Show success message
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Data saved successfully!')),
-      );
-
-      // Clear the fields after saving
-      _nameController.clear();
-      _ageController.clear();
-      _hobbyController.clear();
     } catch (e) {
-      // Handle any errors
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Error saving data: $e')),
       );
@@ -61,75 +61,77 @@ class _MyHomePageState extends State<HomePage> {
         title: Text("Input Form"),
         backgroundColor: Colors.deepPurple,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Name input field
-            TextField(
-              controller: _nameController,
-              decoration: InputDecoration(
-                labelText: 'Name',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(height: 16.0),
-
-            // Age input field
-            TextField(
-              controller: _ageController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                labelText: 'Age',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(height: 16.0),
-
-            // Hobby input field
-            TextField(
-              controller: _hobbyController,
-              decoration: InputDecoration(
-                labelText: 'Favorite Hobby',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(height: 16.0),
-
-            SizedBox(height: 16.0),
-
-            // Save Button
-            Center(
-              child: ElevatedButton(
-                onPressed: _saveData,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.deepPurple,
-                  foregroundColor: Colors.black,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Name input field
+              TextField(
+                controller: _nameController,
+                decoration: InputDecoration(
+                  labelText: 'Name',
+                  border: OutlineInputBorder(),
                 ),
-                child: Text("Save Data"),
               ),
-            ),
-            SizedBox(height: 16.0),
+              SizedBox(height: 16.0),
 
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => DisplayPage()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.black,
-                  backgroundColor:
-                      Colors.deepOrange, // Text color/ Background color
-                  // Text color
+              // Age input field
+              TextField(
+                controller: _ageController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  labelText: 'Age',
+                  border: OutlineInputBorder(),
                 ),
-                child: Text("View Data"),
               ),
-            ),
-          ],
+              SizedBox(height: 16.0),
+
+              // Hobby input field
+              TextField(
+                controller: _hobbyController,
+                decoration: InputDecoration(
+                  labelText: 'Favorite Hobby',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              SizedBox(height: 16.0),
+
+              SizedBox(height: 16.0),
+
+              // Save Button
+              Center(
+                child: ElevatedButton(
+                  onPressed: _saveData,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurple,
+                    foregroundColor: Colors.black,
+                  ),
+                  child: Text("Save Data"),
+                ),
+              ),
+              SizedBox(height: 16.0),
+
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DisplayPage()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.black,
+                    backgroundColor:
+                        Colors.deepOrange, // Text color/ Background color
+                    // Text color
+                  ),
+                  child: Text("View Data"),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
