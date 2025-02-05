@@ -1,59 +1,49 @@
-# Device Info App
+# Media Access App  
 
-A simple Flutter application that demonstrates how to:
-- Fetch and display the device model and operating system information.
-- Use the `device_info_plus` package to retrieve device details.
+A simple Flutter application that demonstrates how to:  
+- Pick multiple images from the device's gallery.  
+- Display selected images in a scrollable ListView.  
 
-## Features
+## Features  
 
-- **Device Info Fetching:** Automatically retrieves the device model and OS version.
-- **Platform Detection:** Supports both Android and iOS devices.
-- **Error Handling:** Displays an error message if the device info cannot be retrieved.
+- **Image Picking:** Allows users to select multiple images from their device’s gallery.  
+- **Image Display:** Shows selected images in a scrollable ListView.  
+- **Responsive UI:** Adapts to different device screen sizes.  
+- **No Images Handling:** Displays a message when no images have been selected.  
 
-## Screenshots
-### Device Info Page
-![Device Info](device_info.jpg)
+## Screenshots  
+### Media Access Page  
+![Media Access](start_app.jpg)|[Media Access](images_picked.jpg)|[Medoa Access](display_images.jpg)
 
-## Prerequisites
+## Prerequisites  
 
-- [Flutter](https://flutter.dev) installed on your machine.
-- A device or emulator running Android or iOS.
+- [Flutter](https://flutter.dev) installed on your machine.  
+- A device or emulator running Android or iOS.  
 
-## Getting Started
+## Getting Started  
 
-### 1. Clone the Repository
+### 1. Clone the Repository  
 
-```bash
+```bash  
 git clone https://github.com/YamatoEG/Simple_App.git
 
-git chechout device_info
-```
+git checkout media_access
+```  
 
-### 2. Install Dependencies
+### 2. Install dependencies  
 
-```bash
+```bash  
 flutter pub get
-```
+```  
 
-### 3. Run the App
+### 3. Run the App  
 
-```bash
+```bash  
 flutter run
 ```
 
 ## Dependencies
+This project uses the following dependencies:
 
-- This project uses the following dependencies:
-
- * flutter
-
- * device_info_plus
-
-## Usage
-- Launch the app on your Android or iOS device.
-
-- The app will automatically fetch and display the device model and OS version.
-
-
-## Error Handling
-If the app encounters an error while fetching device info, it will display an error message in place of the device model and OS version.
+- flutter
+- image_picker
