@@ -43,11 +43,13 @@ class _MyHomePageState extends State<HomePage> {
         _ageController.clear();
         _hobbyController.clear();
 
+        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Data saved successfully!')),
         );
       });
     } catch (e) {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Error saving data: $e')),
       );

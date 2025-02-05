@@ -1,34 +1,23 @@
-# Simple Firebase Firestore App
+# Device Info App
 
 A simple Flutter application that demonstrates how to:
-- Capture user input (Name, Age, and Favorite Hobby) using a form.
-- Save the input data to Firebase Firestore.
-- Retrieve and display the saved data on a separate page.
+- Fetch and display the device model and operating system information.
+- Use the `device_info_plus` package to retrieve device details.
 
 ## Features
 
-- **Input Form:** A form with three input fields for Name, Age, and Favorite Hobby.
-- **Save Data:** Store user input in a Firestore collection named `users`.
-- **View Data:** Navigate to a display page to fetch and show the stored data.
-- **Firebase Integration:** Uses [Firebase Firestore](https://firebase.google.com/docs/firestore) for backend data storage.
+- **Device Info Fetching:** Automatically retrieves the device model and OS version.
+- **Platform Detection:** Supports both Android and iOS devices.
+- **Error Handling:** Displays an error message if the device info cannot be retrieved.
 
 ## Screenshots
-### Input Form Page
-![Input Form](Screenshot_1.jpg)
-
-### Display Data Page
-![Display Data](viewdata.jpg)
-
-### Firebase Firestore Collection
-![Firestore Collection](firebaseCollection.jpg)
+### Device Info Page
+![Device Info](device_info.jpg)
 
 ## Prerequisites
 
 - [Flutter](https://flutter.dev) installed on your machine.
-- A Firebase project set up in the [Firebase Console](https://console.firebase.google.com).
-- Firebase configuration files:
-  - **Android:** Place `google-services.json` in the `android/app/` directory.
-  - **iOS:** Place `GoogleService-Info.plist` in the `ios/Runner/` directory.
+- A device or emulator running Android or iOS.
 
 ## Getting Started
 
@@ -36,42 +25,35 @@ A simple Flutter application that demonstrates how to:
 
 ```bash
 git clone https://github.com/YamatoEG/Simple_App.git
+
+git chechout device_info
 ```
 
-### 2. Navigate to the Project Directory
-```bash
-cd Simple_App
-```
+### 2. Install Dependencies
 
-### 3. Install Dependencies
 ```bash
 flutter pub get
 ```
 
-### 4. Run the Application
+### 3. Run the App
+
 ```bash
 flutter run
 ```
 
-## Firestore Rules (Ensure Read/Write Access)
-Update your Firebase Firestore security rules to allow read/write access:
-```json
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /users/{userId} {
-      allow read, write: if true;
-    }
-  }
-}
-```
-
 ## Dependencies
-This project uses the following dependencies:
-- `flutter`
-- `cloud_firestore`
-- `firebase_core`
-- `provider`
+
+- This project uses the following dependencies:
+
+ * flutter
+
+ * device_info_plus
+
+## Usage
+- Launch the app on your Android or iOS device.
+
+- The app will automatically fetch and display the device model and OS version.
 
 
-
+## Error Handling
+If the app encounters an error while fetching device info, it will display an error message in place of the device model and OS version.

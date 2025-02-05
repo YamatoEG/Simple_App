@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:simple_app/firebase/model/UserModel.dart';
+import 'package:simple_app/firebase/model/user_model.dart';
 
 class FormFireBaseService {
   var db = FirebaseFirestore.instance;

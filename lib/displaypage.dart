@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class DisplayPage extends StatefulWidget {
+  const DisplayPage({super.key});
+
   @override
   DisplayPageState createState() => DisplayPageState();
 }
