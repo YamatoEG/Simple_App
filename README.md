@@ -10,10 +10,9 @@ A simple Flutter application that demonstrates how to:
 - **Image Display:** Shows selected images in a scrollable ListView.  
 - **Responsive UI:** Adapts to different device screen sizes.  
 - **No Images Handling:** Displays a message when no images have been selected.  
-
 ## Screenshots  
 ### Media Access Page  
-![Media Access](start_app.jpg)|[Media Access](images_picked.jpg)|[Medoa Access](display_images.jpg)
+![Media Access](start_app.jpg) | ![Images Picked](images_picked.jpg) | ![Display Images](display_images.jpg)
 
 ## Prerequisites  
 
