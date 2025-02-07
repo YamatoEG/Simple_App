@@ -1,48 +1,51 @@
-# Media Access App  
+# Flutter Map App
 
-A simple Flutter application that demonstrates how to:  
-- Pick multiple images from the device's gallery.  
-- Display selected images in a scrollable ListView.  
+A simple Flutter application that displays a map centered with a marker on Cairo, Egypt using the `flutter_map` package.
 
-## Features  
+## Features
 
-- **Image Picking:** Allows users to select multiple images from their device’s gallery.  
-- **Image Display:** Shows selected images in a scrollable ListView.  
-- **Responsive UI:** Adapts to different device screen sizes.  
-- **No Images Handling:** Displays a message when no images have been selected.  
+- **Map Display:** Uses OpenStreetMap tiles to render the map.
+- **Location Marker:** Displays a red location pin at Cairo, Egypt.
+- **Zoom Control:** Supports zooming in and out.
+
+## Prerequisites
+
+- [Flutter](https://flutter.dev) installed on your machine.
+- A device or emulator running Android or iOS.
+
 ## Screenshots  
-### Media Access Page  
-![Media Access](start_app.jpg) | ![Images Picked](images_picked.jpg) | ![Display Images](display_images.jpg)
+### Cairo 
+![Cairo,Egypt](Cairo-marker.jpg)
 
-## Prerequisites  
+## Getting Started
 
-- [Flutter](https://flutter.dev) installed on your machine.  
-- A device or emulator running Android or iOS.  
+### 1. Clone the Repository
 
-## Getting Started  
-
-### 1. Clone the Repository  
-
-```bash  
+```bash
 git clone https://github.com/YamatoEG/Simple_App.git
 
-git checkout media_access
-```  
+git checkout google_map
+```
 
-### 2. Install dependencies  
+### 2. Install Dependencies
 
-```bash  
+```bash
 flutter pub get
-```  
+```
 
-### 3. Run the App  
+### 3. Run the App
 
-```bash  
+```bash
 flutter run
 ```
 
 ## Dependencies
+
 This project uses the following dependencies:
 
-- flutter
-- image_picker
+- `flutter`
+- `flutter_map`
+- `latlong2`
+
+
+

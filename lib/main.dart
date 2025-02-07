@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:simple_app/media_access.dart';
+import 'package:simple_app/google_maps.dart';
 
 Future<void> main() async {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: MediaAccess(),
+      home: MapScreen(),
     );
   }
 }
